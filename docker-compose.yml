@@ -1,0 +1,18 @@
+version: '3'
+services:
+  serviceregistry:
+    image: 'durgaprasad707/serviceregistry:0.0.1'
+    container_name: 'serviceregistry'
+    ports: 
+      - : '8761:8761'
+  Configserver:
+    image: 'durgaprasad707/configserver:0.0.1'
+    container_ name: 'configserver'
+    ports:
+      - : '9296:9296'
+  cloudgateway:
+    image: 'durgaprasad707/cloudgateway:0.0.1'
+    container_name: 'cloudgateway'
+    ports:
+      -: '9090
+     
