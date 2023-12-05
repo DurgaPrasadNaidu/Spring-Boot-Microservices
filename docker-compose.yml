@@ -4,12 +4,12 @@ services:
     image: 'durgaprasad707/serviceregistry:0.0.1'
     container_name: 'serviceregistry'
     ports: 
-      -  '8761:8761'
+      - '8761:8761'
   configserver:
     image: 'durgaprasad707/configserver:0.0.1'
-    container_ name: 'configserver'
+    container_name: 'configserver'
     ports:
-      -  '9296:9296'
+      - '9296:9296'
     environment:
       - EUREKA_SERVER_ADDRESS= http://hos.docker.internal:8761/eureka
     depends_on:
@@ -19,9 +19,9 @@ services:
     container_name: 'cloudgateway'
     ports:
       - '9090'
-     environment:
-      - EUREKA_SERVER_ADDRESS= http://hos.docker.internal:8761/eureka
-      - Config_Server_URL:localhost    
+    environment:
+      - EUREKA_SERVER_ADDRESS= http://host.docker.internal:8761/eureka
+      - Config_Server_URL= host.docker.internal
     depends_on:
       - configserver 
     
