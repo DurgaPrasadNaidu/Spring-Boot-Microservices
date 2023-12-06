@@ -11,7 +11,7 @@ services:
     ports:
       - '9296:9296'
     environment:
-      - EUREKA_SERVER_ADDRESS= http://hos.docker.internal:8761/eureka
+      - EUREKA_SERVER_ADDRESS= http://host.docker.internal:8761/eureka
     depends_on:
       - serviceregistry
   cloudgateway:
