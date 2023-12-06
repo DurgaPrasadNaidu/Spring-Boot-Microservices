@@ -13,7 +13,7 @@ services:
     environment:
       - EUREKA_SERVER_ADDRESS=http://host.docker.internal:8761/eureka
     healthcheck:
-      test: ["CMD", "CURL", "-f" "http://configserver:9296/actuator/healthchek" ]
+      test: ["CMD", "CURL", "-f", "http://configserver:9296/actuator/health" ]
       interval: 10s
       timeout: 5s  
       retries: 5  
