@@ -12,6 +12,11 @@ services:
       - '9296:9296'
     environment:
       - EUREKA_SERVER_ADDRESS=http://host.docker.internal:8761/eureka
+    healthcheck:
+      test: ["CMD", "CURL", "-f" "http://configserver:9296/actuator/healthchek" ]
+      interval: 10s
+      timeout: 5s  
+      retries: 5  
     depends_on:
       - serviceregistry
   cloudgateway:
@@ -23,6 +28,6 @@ services:
       - EUREKA_SERVER_ADDRESS=http://host.docker.internal:8761/eureka
       - Config_Server_URL=configserver
     depends_on:
-      - configserver 
-    
+      - configserver:
+          codition: service_healthy
      
